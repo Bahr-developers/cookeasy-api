@@ -1,3 +1,4 @@
+import { IS_PROTECTED_KEY } from '@decorators';
 import {
     Injectable,
     CanActivate,
@@ -17,7 +18,7 @@ import {
   
     async canActivate(context: ExecutionContext): Promise<boolean> {
       const isProtected = this.reflector.get<boolean>(
-        'isProtected',
+        IS_PROTECTED_KEY,
         context.getHandler(),
       );
   
